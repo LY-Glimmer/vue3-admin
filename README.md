@@ -1,21 +1,21 @@
-# imooc-admin
+# v3-admin
 
-## Project setup
+## 安装依赖
 ```
 yarn install
 ```
 
-### Compiles and hot-reloads for development
+### 启动
 ```
 yarn serve
 ```
 
-### Compiles and minifies for production
+### 打包
 ```
 yarn build
 ```
 
-### Lints and fixes files
+### 检查及修复
 ```
 yarn lint
 ```
