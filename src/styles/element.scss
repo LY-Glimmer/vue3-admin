@@ -1,0 +1,6 @@
+// 全局修改 element plus 样式
+
+// 头像图片统一去背景
+.el-avatar {
+  --el-avatar-background-color: none;
+}

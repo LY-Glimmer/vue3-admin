@@ -1,0 +1,24 @@
+// 常量文件
+$menuText: #bfcbd9; // 菜单颜色
+$menuActiveText: #ffffff; // 菜单激活颜色
+$subMenuActiveText: #f4f4f5; // 菜单激活颜色
+$menuBg: #304156; // 菜单背景
+$menuHover: #263445; // 菜单hover背景
+$subMenuBg: #1f2d3d; // 二级菜单背景颜色
+$subMenuHover: #001528; // 二级菜单
+$sideBarWidth: 210px; // 正常sidebar宽度
+$hideSideBarWidth: 54px; // 隐藏sidebar宽度
+$sideBarDuration: 0.28s; // sidebar宽度缩放动画时间
+
+// 参考:https://www.bluematador.com/blog/how-to-share-variables-between-js-and-sass
+// JS 与 scss 共享变量，在 scss 中通过 :export 进行导出，在 js 中可通过 ESM 进行导入
+:export {
+  menuText: $menuText;
+  menuActiveText: $menuActiveText;
+  subMenuActiveText: $subMenuActiveText;
+  menuBg: $menuBg;
+  menuHover: $menuHover;
+  subMenuBg: $subMenuBg;
+  subMenuHover: $subMenuHover;
+  sideBarWidth: $sideBarWidth;
+}

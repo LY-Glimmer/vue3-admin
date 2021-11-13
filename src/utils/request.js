@@ -6,21 +6,32 @@
  **/
 import axios from 'axios'
 import { showMessage } from '@/utils/utils'
+import store from '@/store'
+import { isCheckTimeout } from '@/utils/auth'
 
 const service = axios.create({
   baseURL: process.env.VUE_APP_BASE_API,
   timeout: 5000
 })
-// 添加请求拦截器
+// 请求拦截器
 service.interceptors.request.use((config) => {
   // 在发送请求之前做些什么
+  if (store.getters.token) {
+    if (isCheckTimeout()) {
+      // Token超时退出登录
+      store.dispatch('user/logout')
+      return Promise.reject(new Error('Token失效了'))
+    }
+    // 如果token存在说明用户已经登录 之后的请求应注入 Authorization
+    config.headers.Authorization = `Bearer ${store.getters.token}`
+  }
   return config
 }, (error) => {
   // 对请求错误做些什么
   return Promise.reject(error)
 })
 
-// 添加响应拦截器
+// 响应拦截器
 service.interceptors.response.use((response) => {
   // 对响应数据做点什么
   const { success, message, data } = response.data
@@ -31,8 +42,12 @@ service.interceptors.response.use((response) => {
     return Promise.reject(new Error(message))
   }
 }, (error) => {
-  showMessage(error, 3)
   // 对响应错误做点什么
+  if (error?.response?.data?.code === 401) {
+    // 401表示Token到期了 退出登录
+    store.dispatch('user/logout')
+  }
+  showMessage(error, 3)
   return Promise.reject(error)
 })
 

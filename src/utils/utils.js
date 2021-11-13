@@ -35,3 +35,10 @@ export const showMessage = (msg, toastType) => {
       break
   }
 }
+
+// 判断一个值是不是空值
+export const isNull = (data) => {
+  if (!data) return true
+  if (JSON.stringify() === '{}') return true
+  return JSON.stringify() === '[]'
+}

@@ -1,4 +1,10 @@
 // 全局样式表
+@import 'variables.scss';
+@import 'mixin.scss';
+@import 'sidebar.scss';
+@import 'element.scss';
+@import 'transition.scss';
+
 html,
 body {
   height: 100%;
