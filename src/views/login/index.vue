@@ -3,7 +3,8 @@
   <div class="login-container">
     <el-form class="login-from" ref="loginFormRef" :model="loginForm" :rules="loginRules">
       <div class="title-container">
-        <h3 class="title">用户登录</h3>
+        <h3 class="title">{{ $t('msg.login.title') }}</h3>
+        <lang-select class="lang-select" effect="light"></lang-select>
       </div>
       <!--用户名-->
       <el-form-item prop="username">
@@ -22,15 +23,20 @@
           <svg-icon :icon="passwordType === 'password' ? 'eye' : 'eye-open'"></svg-icon>
         </span>
       </el-form-item>
-      <el-button type="primary" class="login-btn" @click="handlerLogin">登录</el-button>
+      <el-button type="primary" class="login-btn" @click="handlerLogin">{{ $t('msg.login.loginBtn') }}</el-button>
     </el-form>
   </div>
 </template>
 
 <script setup>
+// 语言选择组件
+import LangSelect from '@/components/LangSelect/index'
 import { reactive, ref } from 'vue'
 import { validatePassWorld } from '@/views/login/rules'
 import { useStore } from 'vuex'
+import { useI18n } from 'vue-i18n'
+// 处理国际化
+const i18n = useI18n()
 // 数据源
 const loginForm = reactive({
   username: 'super-admin',
@@ -43,15 +49,10 @@ const loginRules = reactive({
     {
       required: true,
       trigger: 'blur',
-      message: '用户名为必填项'
+      message: i18n.t('msg.login.usernameRule')
     }
   ],
   password: [
-    {
-      required: true,
-      trigger: 'blur',
-      message: '密码为必填项'
-    },
     {
       trigger: 'blur',
       validator: validatePassWorld()
@@ -166,6 +167,17 @@ $cursor: #fff;
   .login-btn {
     width: 100%;
     margin-bottom: 30px;
+  }
+
+  .lang-select {
+    position: absolute;
+    top: 4px;
+    right: 0;
+    font-size: 26px;
+    padding: 4px;
+    border-radius: 4px;
+    cursor: pointer;
+    background: #ffffff;
   }
 }
 </style>

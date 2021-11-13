@@ -16,6 +16,8 @@ const getters = {
   // 动态样式 主题
   cssVar: state => variables,
   // 控制 sidebar 显示隐藏
-  sidebarOpened: state => state.app.sidebarOpened
+  sidebarOpened: state => state.app.sidebarOpened,
+  // 国际化
+  language: state => state.app.language
 }
 export default getters

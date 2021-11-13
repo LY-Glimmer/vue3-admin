@@ -15,7 +15,6 @@ const icon = computed(() => {
 })
 // 点击图标 隐藏并切换
 const toggleClick = () => {
-  console.log(123)
   store.commit('app/triggerSidebarOpened')
 }
 </script>

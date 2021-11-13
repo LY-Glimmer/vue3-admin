@@ -2,6 +2,8 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
+// 国际化处理
+import i18n from '@/i18n'
 import installElementPlus from './plugins/element'
 // 导入全局样式表
 import '@/styles/index.scss'
@@ -15,6 +17,4 @@ const app = createApp(App)
 installElementPlus(app)
 // 全局注册SvgIcon
 installSvgIcon(app)
-app.use(store)
-  .use(router)
-  .mount('#app')
+app.use(store).use(router).use(i18n).mount('#app')

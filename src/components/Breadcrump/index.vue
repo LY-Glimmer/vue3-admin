@@ -4,9 +4,13 @@
       <!-- 面包屑的最后一项 -->
       <el-breadcrumb-item v-for="(item,index) in breadcrumbsData" :key="item.path">
         <!-- 不可点击项 -->
-        <span v-if="index === breadcrumbsData.length - 1" class="no-redirect">{{ item.meta.title }}</span>
+        <span v-if="index === breadcrumbsData.length - 1" class="no-redirect">
+          {{ generateTitle(item.meta.title) }}
+        </span>
         <!-- 可点击项 -->
-        <a v-else class="redirect" @click.prevent="onLinkClick(item)">{{ item.meta.title }}</a>
+        <a v-else class="redirect" @click.prevent="onLinkClick(item)">
+          {{ generateTitle(item.meta.title) }}
+        </a>
       </el-breadcrumb-item>
     </transition-group>
   </el-breadcrumb>
@@ -16,6 +20,7 @@
 import { watch, ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useStore } from 'vuex'
+import { generateTitle } from '@/utils/i18n'
 
 const route = useRoute()
 const breadcrumbsData = ref([])

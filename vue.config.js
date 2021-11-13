@@ -16,6 +16,7 @@ module.exports = {
   },
   chainWebpack (config) {
     // 配置处理Svg的loader Start
+    // 处理 i18n 的警告
     config.module
       .rule('svg')
       .exclude.add(resolve('src/icons'))
@@ -32,5 +33,7 @@ module.exports = {
       })
       .end()
     // 配置处理Svg的loader End
+    // 处理 i18n 的警告
+    config.resolve.alias.set('vue-i18n', 'vue-i18n/dist/vue-i18n.cjs.js')
   }
 }

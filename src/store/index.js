@@ -21,7 +21,6 @@ const modules = modulesFiles.keys().reduce((modules, modulePath) => {
   // 返回这个对象
   return modules
 }, {})
-console.log(modules)
 export default createStore({
   getters,
   modules
