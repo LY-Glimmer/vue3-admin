@@ -4,7 +4,9 @@
  * @author: LY_Glimmer
  * @time: 2021.11.11
  **/
-import variables from '@/styles/variables.scss'
+import { generateColors } from '@/utils/theme'
+import { getItem } from '@/utils/storage'
+import { MAIN_COLOR } from '@/constant'
 
 const getters = {
   // 登录令牌
@@ -14,10 +16,15 @@ const getters = {
   // 用户信息
   userInfo: state => state.user.userInfo,
   // 动态样式 主题
-  cssVar: state => variables,
+  cssVar: state => ({
+    ...state.theme.variables,
+    ...generateColors(getItem(MAIN_COLOR))
+  }),
   // 控制 sidebar 显示隐藏
   sidebarOpened: state => state.app.sidebarOpened,
   // 国际化
-  language: state => state.app.language
+  language: state => state.app.language,
+  //
+  mainColor: state => state.theme.mainColor
 }
 export default getters

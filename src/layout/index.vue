@@ -2,7 +2,7 @@
 <template>
   <div class="app-wrapper" :class="[$store.getters.sidebarOpened ? 'openSidebar' : 'hideSidebar']">
     <!--左侧 menu菜单-->
-    <sidebar class="sidebar-container" :style="{backgroundColor:variables.menuBg}"></sidebar>
+    <sidebar class="sidebar-container" :style="{ backgroundColor: $store.getters.cssVar.menuBg }"></sidebar>
     <div class="main-container">
       <!--顶部 NavBar-->
       <div class="fixed-header">
@@ -18,9 +18,6 @@
 import Navbar from '@/layout/components/Navbar'
 import AppMain from '@/layout/components/AppMain'
 import Sidebar from '@/layout/components/Sidebar/index'
-import variables from '@/styles/variables.scss'
-
-import {} from 'vue'
 </script>
 
 <style lang="scss" scoped>

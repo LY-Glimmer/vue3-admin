@@ -39,5 +39,10 @@ import SidebarMenu from '@/layout/components/Sidebar/SidebarMenu'
     white-space: nowrap;
     text-shadow: 1px 1px 2px #000;
   }
+
+  .el-avatar {
+    --el-avatar-background-color: none;
+    margin-right: 2px;
+  }
 }
 </style>

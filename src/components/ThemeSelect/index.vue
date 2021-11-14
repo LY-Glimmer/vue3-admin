@@ -15,13 +15,17 @@
     </template>
   </el-dropdown>
   <!--弹出层-->
-  <div></div>
+  <select-color v-model:flag="selectColorVisible"></select-color>
 </template>
 
 <script setup>
-import {} from 'vue'
+import { ref } from 'vue'
+import SelectColor from '@/components/ThemeSelect/components/SelectColor'
+// 控制颜色选择器显示隐藏
+const selectColorVisible = ref(false)
 
 const handleSetTheme = () => {
+  selectColorVisible.value = true
 }
 </script>
 

@@ -13,7 +13,8 @@
       <!--头像-->
       <el-dropdown class="avatar-container" trigger="click">
         <div class="avatar-wrapper">
-          <el-avatar shape="square" :size="40" :src="$store.getters.userInfo.avatar"></el-avatar>
+          <!--          <el-avatar shape="square" :size="40" :src="$store.getters.userInfo.avatar"></el-avatar>-->
+          <el-avatar shape="square" :size="40" src="/images/avatar.jpg"></el-avatar>
           <svg-icon class="setting" icon="setting"></svg-icon>
         </div>
         <template #dropdown>
