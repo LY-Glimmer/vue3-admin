@@ -24,7 +24,9 @@ const getters = {
   sidebarOpened: state => state.app.sidebarOpened,
   // 国际化
   language: state => state.app.language,
-  //
-  mainColor: state => state.theme.mainColor
+  // 主要色调
+  mainColor: state => state.theme.mainColor,
+  // tags数据源
+  tagsViewList: state => state.app.tagsViewList
 }
 export default getters

@@ -1,7 +1,12 @@
 <!--登录组件-->
 <template>
   <div class="login-container">
-    <el-form class="login-from" ref="loginFormRef" :model="loginForm" :rules="loginRules">
+    <el-form
+      class="login-from"
+      ref="loginFormRef"
+      :model="loginForm"
+      :rules="loginRules"
+    >
       <div class="title-container">
         <h3 class="title">{{ $t('msg.login.title') }}</h3>
         <lang-select class="lang-select" effect="light"></lang-select>
@@ -11,19 +16,34 @@
         <span class="svg-container">
           <svg-icon icon="user"></svg-icon>
         </span>
-        <el-input placeholder="username" name="username" type="text" v-model="loginForm.username"></el-input>
+        <el-input
+          placeholder="username"
+          name="username"
+          type="text"
+          v-model="loginForm.username"
+        ></el-input>
       </el-form-item>
       <!--密码-->
       <el-form-item prop="password">
         <span class="svg-container">
-           <svg-icon icon="password"></svg-icon>
+          <svg-icon icon="password"></svg-icon>
         </span>
-        <el-input placeholder="password" name="password" v-model="loginForm.password" :type="passwordType"></el-input>
+        <el-input
+          placeholder="password"
+          name="password"
+          v-model="loginForm.password"
+          :type="passwordType"
+        ></el-input>
         <span class="show-pwd" @click="onChangePwd">
-          <svg-icon :icon="passwordType === 'password' ? 'eye' : 'eye-open'"></svg-icon>
+          <svg-icon
+            :icon="passwordType === 'password' ? 'eye' : 'eye-open'"
+          ></svg-icon>
         </span>
       </el-form-item>
-      <el-button type="primary" class="login-btn" @click="handlerLogin">{{ $t('msg.login.loginBtn') }}</el-button>
+      <el-button type="primary" class="login-btn" @click="handlerLogin">{{
+          $t('msg.login.loginBtn')
+        }}
+      </el-button>
     </el-form>
   </div>
 </template>
@@ -73,7 +93,7 @@ const loginFormRef = ref(null)
 
 const handlerLogin = () => {
   // 1.进行表单校验
-  loginFormRef.value.validate(async valid => {
+  loginFormRef.value.validate(async (valid) => {
     if (valid) {
       login.value = true
       store
@@ -82,7 +102,7 @@ const handlerLogin = () => {
           login.value = false
           // TODO: 登录后操作
         })
-        .catch(err => {
+        .catch((err) => {
           console.log(err)
           login.value = false
         })
@@ -91,7 +111,6 @@ const handlerLogin = () => {
   // 2.触发登录动作
   // 3.登录后处理
 }
-
 </script>
 
 <style lang="scss" scoped>
