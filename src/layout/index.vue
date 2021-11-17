@@ -2,13 +2,17 @@
 <template>
   <div class="app-wrapper" :class="[$store.getters.sidebarOpened ? 'openSidebar' : 'hideSidebar']">
     <!--左侧 menu菜单-->
-    <sidebar class="sidebar-container" :style="{ backgroundColor: $store.getters.cssVar.menuBg }"></sidebar>
+    <sidebar
+      id="guide-sidebar"
+      class="sidebar-container"
+      :style="{ backgroundColor: $store.getters.cssVar.menuBg }">
+    </sidebar>
     <div class="main-container">
       <!--顶部 NavBar-->
       <div class="fixed-header">
         <navbar></navbar>
         <!--路由标签-->
-        <tags-view></tags-view>
+        <tags-view id="guide-tags"></tags-view>
       </div>
       <!--内容区-->
       <app-main></app-main>

@@ -1,6 +1,8 @@
 <!--全屏组件-->
 <template>
-  <svg-icon @click="onToggle" :icon="isFullScreen ? 'exit-fullscreen' : 'fullscreen'"></svg-icon>
+  <div>
+    <svg-icon id="guide-full" @click="onToggle" :icon="isFullScreen ? 'exit-fullscreen' : 'fullscreen'"></svg-icon>
+  </div>
 </template>
 
 <script setup>

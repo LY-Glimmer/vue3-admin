@@ -4,8 +4,10 @@
     <!--切换按钮-->
     <hamburger class="hamburger-container"></hamburger>
     <!--面包屑导航-->
-    <breadcrumb class="breadcrumb-container"></breadcrumb>
+    <breadcrumb id="guide-breadcrumb" class="breadcrumb-container"></breadcrumb>
     <div class="right-menu">
+      <!--引导教学-->
+      <guide class="right-menu-item hover-effect"></guide>
       <!--搜索-->
       <header-search class="right-menu-item hover-effect"></header-search>
       <!--全屏切换-->
@@ -46,6 +48,7 @@ import LangSelect from '@/components/LangSelect/index'
 import ThemeSelect from '@/components/ThemeSelect/index'
 import ScreenFull from '@/components/ScreenFull/index'
 import HeaderSearch from '@/components/HeaderSearch/index'
+import Guide from '@/components/Guide/index'
 
 const store = useStore()
 const logout = () => {

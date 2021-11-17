@@ -13,10 +13,11 @@
       @contextmenu.prevent="openMenu($event,index)"
       :key="tag.fullPath">
       {{ tag.title }}
-      <svg-icon v-show="!isActive(tag)"
-                class="close"
-                :icon="isActive(tag) ? '' : 'push'"
-                @click.prevent.stop="onClose(index)">
+      <svg-icon
+        v-show="!isActive(tag)"
+        class="close"
+        :icon="isActive(tag) ? '' : 'push'"
+        @click.prevent.stop="onClose(index)">
       </svg-icon>
     </router-link>
     <!--右键菜单-->
