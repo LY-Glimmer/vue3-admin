@@ -25,6 +25,8 @@ service.interceptors.request.use((config) => {
     // 如果token存在说明用户已经登录 之后的请求应注入 Authorization
     config.headers.Authorization = `Bearer ${store.getters.token}`
   }
+  // 配置接口国际化
+  config.headers['Accept-Language'] = store.getters.language
   return config
 }, (error) => {
   // 对请求错误做些什么

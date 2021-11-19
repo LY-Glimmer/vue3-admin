@@ -1,3 +1,9 @@
+/**
+ * @name: 系统模块
+ * @description:
+ * @author: LY_Glimmer
+ * @time: 2021.11.19
+ **/
 import request from '@/utils/request'
 
 // 登录
