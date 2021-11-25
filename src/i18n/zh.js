@@ -48,12 +48,15 @@ export default {
   universal: {
     title: '提示',
     confirm: '确定',
-    cancel: '取消'
+    cancel: '取消',
+    success: '成功',
+    warning: '警告',
+    error: '错误'
   },
   navBar: {
     themeChange: '主题修改',
     headerSearch: '页面搜索',
-    screenfull: '全屏替换',
+    screenFull: '全屏替换',
     lang: '国际化',
     guide: '功能引导',
     home: '首页',

@@ -48,12 +48,15 @@ export default {
   universal: {
     title: 'remind',
     confirm: 'confirm',
-    cancel: 'cancel'
+    cancel: 'cancel',
+    success: 'success',
+    warning: 'warning',
+    error: 'error'
   },
   navBar: {
     themeChange: 'Theme Modification',
     headerSearch: 'Page Search',
-    screenfull: 'Full Screen Replacement',
+    screenFull: 'Full Screen Replacement',
     lang: 'Globalization',
     guide: 'Function Guide',
     home: 'Home',

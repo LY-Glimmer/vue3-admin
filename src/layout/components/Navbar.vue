@@ -86,12 +86,15 @@ const logout = () => {
     align-items: center;
     float: right;
     padding-right: 16px;
+    height: 100%;
 
     ::v-deep .right-menu-item {
-      display: inline-block;
-      padding: 0 18px 0 0;
+      display: flex;
+      align-items: center;
+      padding: 0 10px;
       font-size: 24px;
       color: #5a5e66;
+      height: 100%;
       vertical-align: text-bottom;
 
       &.hover-effect {
@@ -99,7 +102,7 @@ const logout = () => {
         transition: background 0.3s;
 
         &:hover {
-          background: rgba(0, 0, 0, 0.025);
+          background: rgba(0, 0, 0, 0.125);
         }
       }
     }

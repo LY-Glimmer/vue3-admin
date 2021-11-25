@@ -10,6 +10,7 @@ module.exports = {
     proxy: {
       '/api': {
         target: 'https://api.imooc-admin.lgdsunday.club/',
+        // target: 'http://82.156.57.14:3004/',
         changeOrigin: true
       }
     }

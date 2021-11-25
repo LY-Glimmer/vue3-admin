@@ -133,7 +133,7 @@ watchSwitchLang(() => {
 
   .search-icon {
     cursor: pointer;
-    font-size: 18px;
+    font-size: 24px;
     vertical-align: middle;
   }
 

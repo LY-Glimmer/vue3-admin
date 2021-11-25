@@ -8,11 +8,13 @@ import axios from 'axios'
 import { showMessage } from '@/utils/utils'
 import store from '@/store'
 import { isCheckTimeout } from '@/utils/auth'
-
-const service = axios.create({
+// 默认配置对象
+const defaultConfig = {
   baseURL: process.env.VUE_APP_BASE_API,
   timeout: 5000
-})
+}
+
+const service = axios.create(defaultConfig)
 // 请求拦截器
 service.interceptors.request.use((config) => {
   // 在发送请求之前做些什么
