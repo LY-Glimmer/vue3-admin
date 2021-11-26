@@ -35,3 +35,10 @@ export const getUserManageAllList = () => {
     method: 'GET'
   })
 }
+// 获取用户详情
+export const userDetail = id => {
+  return request({
+    url: `/user-manage/detail/${id}`,
+    method: 'GET'
+  })
+}

@@ -13,6 +13,8 @@ import installSvgIcon from '@/icons/index'
 import './permission'
 // 全局属性 过滤器
 import installFilter from '@/filters/index'
+// 指令
+import installDirective from '@/directives'
 
 const app = createApp(App)
 // 全局注册elementPlus
@@ -21,4 +23,7 @@ installElementPlus(app)
 installSvgIcon(app)
 // 注册过滤器
 installFilter(app)
+// 注册指令
+installDirective(app)
+
 app.use(store).use(router).use(i18n).mount('#app')

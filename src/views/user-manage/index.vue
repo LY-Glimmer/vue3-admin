@@ -47,7 +47,7 @@
         <!--操作-->
         <el-table-column :label="$t('msg.excel.action')" fixed="right" width="220">
           <template v-slot="{row}">
-            <el-button type="primary" size="mini">{{ $t('msg.excel.show') }}</el-button>
+            <el-button type="primary" size="mini" @click="onShowClick(row._id)">{{ $t('msg.excel.show') }}</el-button>
             <el-button type="info" size="mini">{{ $t('msg.excel.showRole') }}</el-button>
             <el-button type="danger" size="mini" @click="onRemoveClick(row)">{{ $t('msg.excel.remove') }}</el-button>
           </template>
@@ -112,6 +112,10 @@ const handleSizeChange = currentSize => {
 const handleCurrentChange = currentPage => {
   data.page = currentPage
   getListData()
+}
+// 点击了查看按钮
+const onShowClick = (id) => {
+  router.push(`/user/info/${id}`)
 }
 // 点击删除按钮
 const i18n = useI18n()
