@@ -48,7 +48,7 @@
         <el-table-column :label="$t('msg.excel.action')" fixed="right" width="220">
           <template v-slot="{row}">
             <el-button type="primary" size="mini" @click="onShowClick(row._id)">{{ $t('msg.excel.show') }}</el-button>
-            <el-button type="info" size="mini">{{ $t('msg.excel.showRole') }}</el-button>
+            <el-button type="info" size="mini" @click="onShowRoleClick(row)">{{ $t('msg.excel.showRole') }}</el-button>
             <el-button type="danger" size="mini" @click="onRemoveClick(row)">{{ $t('msg.excel.remove') }}</el-button>
           </template>
         </el-table-column>
@@ -68,16 +68,19 @@
     </el-card>
     <!--导出Excel弹出层-->
     <export-excel v-model:dialogVisible="data.exportExcelVisible"></export-excel>
+    <!--分配角色对话框-->
+    <roles-dialog v-model="roleDialogVisible" :user-id="selectUserId" @updateRole="getListData"></roles-dialog>
   </div>
 </template>
 <script setup>
-import { reactive, onActivated } from 'vue'
+import { reactive, onActivated, ref, watch } from 'vue'
 import { getUserManageList, deleteUser } from '@/api/user-manage'
 import { watchSwitchLang } from '@/utils/i18n'
 import { useRouter } from 'vue-router'
 import { showMessage, showMessageBox } from '@/utils/utils'
 import { useI18n } from 'vue-i18n'
 import ExportExcel from '@/views/user-manage/components/ExportExcel'
+import RolesDialog from '@/views/user-manage/components/RolesDialog'
 // 相关数据
 const data = reactive({
   // 表格数据
@@ -117,6 +120,18 @@ const handleCurrentChange = currentPage => {
 const onShowClick = (id) => {
   router.push(`/user/info/${id}`)
 }
+// 控制分配角色对话框的显示和隐藏
+const roleDialogVisible = ref(false)
+// 当前点击的用户Id
+const selectUserId = ref('')
+const onShowRoleClick = (row) => {
+  roleDialogVisible.value = true
+  selectUserId.value = row._id
+}
+// 重复点击相同角色重新发送请求
+watch(roleDialogVisible, val => {
+  if (!val) selectUserId.value = ''
+})
 // 点击删除按钮
 const i18n = useI18n()
 const onRemoveClick = async row => {

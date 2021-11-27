@@ -5,6 +5,7 @@
  * @time: 2021.11.19
  **/
 import request from '@/utils/request'
+
 // 获取项目功能
 export const getFeature = () => {
   return request({
@@ -12,6 +13,7 @@ export const getFeature = () => {
     method: 'GET'
   })
 }
+
 // 获取项目章节
 export const getChapter = () => {
   return request({

@@ -5,6 +5,7 @@
  * @time: 2021.11.19
  **/
 import request from '@/utils/request'
+
 // 获取用户列表
 export const getUserManageList = params => {
   return request({
@@ -13,6 +14,7 @@ export const getUserManageList = params => {
     params
   })
 }
+
 // 上传Excel导入的用户数据
 export const userBatchImport = data => {
   return request({
@@ -21,12 +23,14 @@ export const userBatchImport = data => {
     data
   })
 }
+
 // 删除用户
 export const deleteUser = id => {
   return request({
     url: `/user-manage/detele/${id}`
   })
 }
+
 // 获取所有用户列表
 export const getUserManageAllList = () => {
   return request({
@@ -34,10 +38,29 @@ export const getUserManageAllList = () => {
     method: 'GET'
   })
 }
+
 // 获取用户详情
 export const userDetail = id => {
   return request({
     url: `/user-manage/detail/${id}`,
     method: 'GET'
+  })
+}
+
+//  获取指定用户角色
+export const userRoles = id => {
+  return request({
+    url: `/user-manage/role/${id}`
+  })
+}
+
+// 为用户分配角色
+export const updateRole = (id, roles) => {
+  return request({
+    url: `/user-manage/update-role/${id}`,
+    method: 'POST',
+    data: {
+      roles
+    }
   })
 }
