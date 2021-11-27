@@ -6,7 +6,9 @@
  **/
 
 import print from 'vue3-print-nb'
+import preprocess from '@/directives/permisssion'
 
 export default app => {
   app.use(print)
+  app.directive('preprocess', preprocess)
 }

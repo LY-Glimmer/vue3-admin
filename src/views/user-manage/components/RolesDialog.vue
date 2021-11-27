@@ -50,7 +50,6 @@ const allRoleList = ref([])
 // 获取所有角色数据的方法
 const getListData = async () => {
   allRoleList.value = await roleList()
-  console.log(allRoleList.value)
 }
 getListData()
 watchSwitchLang(getListData)

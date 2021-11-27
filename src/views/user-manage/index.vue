@@ -4,7 +4,9 @@
     <!--头部-->
     <el-card class="header">
       <div>
-        <el-button type="primary" @click="onImportExcelClick">{{ $t('msg.excel.importExcel') }}</el-button>
+        <el-button type="primary" @click="onImportExcelClick" v-preprocess="['importUser']">
+          {{ $t('msg.excel.importExcel') }}
+        </el-button>
         <el-button type="success" @click="onExportExcelClick">{{ $t('msg.excel.exportExcel') }}</el-button>
       </div>
     </el-card>
@@ -48,8 +50,19 @@
         <el-table-column :label="$t('msg.excel.action')" fixed="right" width="220">
           <template v-slot="{row}">
             <el-button type="primary" size="mini" @click="onShowClick(row._id)">{{ $t('msg.excel.show') }}</el-button>
-            <el-button type="info" size="mini" @click="onShowRoleClick(row)">{{ $t('msg.excel.showRole') }}</el-button>
-            <el-button type="danger" size="mini" @click="onRemoveClick(row)">{{ $t('msg.excel.remove') }}</el-button>
+            <el-button
+              type="info"
+              size="mini" @click="onShowRoleClick(row)"
+              v-preprocess="['distributeRole']">
+              {{ $t('msg.excel.showRole') }}
+            </el-button>
+            <el-button
+              type="danger"
+              size="mini"
+              @click="onRemoveClick(row)"
+              v-preprocess="['removeUser']">
+              {{ $t('msg.excel.remove') }}
+            </el-button>
           </template>
         </el-table-column>
       </el-table>
