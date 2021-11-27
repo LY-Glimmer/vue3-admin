@@ -8,7 +8,7 @@ import { login, getUserInfo } from '@/api/system'
 import md5 from 'md5'
 import { getItem, removeAllItem, setItem } from '@/utils/storage'
 import { TOKEN } from '@/constant'
-import router from '@/router'
+import router, { resetRouter } from '@/router'
 import { setTimeStamp } from '@/utils/auth'
 
 export default {
@@ -62,6 +62,8 @@ export default {
     },
     // 退出登录
     logout () {
+      // 退出登录重置router
+      resetRouter()
       // 清理Token
       this.commit('user/setToken', '')
       // 清理用户信息

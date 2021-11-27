@@ -22,7 +22,14 @@ router.beforeEach(async (to, from, next) => {
       // 用户已经登录 判断用户信息是否存在
       if (!store.getters.hasUserInfo) {
         // 用户信息不存在
-        await store.dispatch('user/getUserInfo')
+        const { permission } = await store.dispatch('user/getUserInfo')
+        const filterRoutes = await store.dispatch('permission/filterRoutes', permission.menus)
+        // 循环添加对应路由
+        filterRoutes.forEach(item => {
+          router.addRoute(item)
+        })
+        // 添加完对应路由之后主动跳转
+        return next(to.path)
       }
       next()
     }
