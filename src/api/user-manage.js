@@ -24,8 +24,7 @@ export const userBatchImport = data => {
 // 删除用户
 export const deleteUser = id => {
   return request({
-    url: `/user-manage/delete/${id}`,
-    method: 'GET'
+    url: `/user-manage/detele/${id}`
   })
 }
 // 获取所有用户列表

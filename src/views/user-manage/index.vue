@@ -124,7 +124,6 @@ const onRemoveClick = async row => {
   if (result === 'confirm') {
     // 确认删除
     await deleteUser(row._id)
-    // todo 这里后台有问题等之后在改
     showMessage(i18n.t('msg.excel.removeSuccess'))
     await getListData()
   }
