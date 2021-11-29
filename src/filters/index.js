@@ -10,11 +10,10 @@ import rt from 'dayjs/plugin/relativeTime'
 import 'dayjs/locale/zh-cn'
 import store from '@/store'
 // 时间过滤器
-const dateFilter = (val, format = 'YYYY-MM-DD') => {
+export const dateFilter = (val, format = 'YYYY-MM-DD') => {
   if (!isNaN(val)) {
     val = parseInt(val)
   }
-
   return dayjs(val).format(format)
 }
 
