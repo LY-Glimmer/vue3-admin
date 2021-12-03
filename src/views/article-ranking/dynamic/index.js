@@ -1,3 +1,9 @@
+/**
+ * @name: 动态表格功能
+ * @description:
+ * @author: LY_Glimmer
+ * @time: 2021.12.3
+ **/
 import getDynamicData from './DynamicData'
 import { watchSwitchLang } from '@/utils/i18n'
 import { watch, ref } from 'vue'

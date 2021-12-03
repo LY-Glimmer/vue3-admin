@@ -1,3 +1,9 @@
+/**
+ * @name: 表格渲染的初始数据
+ * @description:
+ * @author: LY_Glimmer
+ * @time: 2021.12.3
+ **/
 import i18n from '@/i18n'
 
 const t = i18n.global.t

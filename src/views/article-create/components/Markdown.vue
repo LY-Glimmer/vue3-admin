@@ -1,11 +1,13 @@
+<!--MarkDown-->
 <template>
   <div class="markdown-container">
     <!-- 渲染区 -->
     <div id="markdown-box"></div>
     <div class="bottom">
       <el-button type="primary" @click="onSubmitClick">{{
-        $t('msg.article.commit')
-      }}</el-button>
+          $t('msg.article.commit')
+        }}
+      </el-button>
     </div>
   </div>
 </template>
@@ -18,6 +20,7 @@ import { onMounted, defineProps, defineEmits, watch } from 'vue'
 import { useStore } from 'vuex'
 import { watchSwitchLang } from '@/utils/i18n'
 import { commitArticle, editArticle } from './commit'
+
 const props = defineProps({
   title: {
     required: true,

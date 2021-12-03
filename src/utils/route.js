@@ -5,6 +5,7 @@
  * @time: 2021.11.12
  **/
 import path from 'path'
+import { isNull } from '@/utils/utils'
 
 /**
  * 返回所有子路由
@@ -29,15 +30,6 @@ export const filterRouters = routes => {
       return childrenRoute.path === route.path
     })
   })
-}
-
-/**
- * 判断数据是否为空值
- */
-function isNull (data) {
-  if (!data) return true
-  if (JSON.stringify(data) === '{}') return true
-  return JSON.stringify(data) === '[]'
 }
 
 /**

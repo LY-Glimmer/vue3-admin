@@ -1,3 +1,4 @@
+<!--文章编辑-->
 <template>
   <div class="editor-container">
     <div id="editor-box"></div>

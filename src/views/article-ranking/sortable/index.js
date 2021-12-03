@@ -1,3 +1,9 @@
+/**
+ * @name: 文章排序功能
+ * @description:
+ * @author: LY_Glimmer
+ * @time: 2021.12.3
+ **/
 import { ref } from 'vue'
 import Sortable from 'sortablejs'
 import i18n from '@/i18n'

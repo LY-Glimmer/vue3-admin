@@ -87,6 +87,6 @@ export const showMessageBox = (message, messageType) => {
  */
 export const isNull = (data) => {
   if (!data) return true
-  if (JSON.stringify() === '{}') return true
-  return JSON.stringify() === '[]'
+  if (JSON.stringify(data) === '{}') return true
+  return JSON.stringify(data) === '[]'
 }
