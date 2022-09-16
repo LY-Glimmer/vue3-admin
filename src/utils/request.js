@@ -29,6 +29,8 @@ service.interceptors.request.use((config) => {
   }
   // 配置接口国际化
   config.headers['Accept-Language'] = store.getters.language
+  // ICode
+  config.headers.icode = 'BA14A16B5C879BA9'
   return config
 }, (error) => {
   // 对请求错误做些什么
